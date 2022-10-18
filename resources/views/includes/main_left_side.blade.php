@@ -21,7 +21,7 @@
       <br />
 
       <!-- sidebar menu -->
-      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+      {{-- <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         <div class="menu_section">
           <h3>General</h3>
           <ul class="nav side-menu">
@@ -29,6 +29,36 @@
               <ul class="nav child_menu">
                 <li><a href="#">Liste des elements</a></li>
                 <li><a href="#">Nouvel element</a></li>
+              </ul>
+            </li>
+
+          
+
+          </ul>
+        </div>
+
+      </div> --}}
+
+      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div class="menu_section">
+          <h3>General</h3>
+          <ul class="nav side-menu">
+            <li><a><i class="fa fa-home"></i> Menu <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu">
+                <li><a href=" {{route('menu.index')}} ">Liste des menus</a></li>
+                <li><a href=" {{route('menu.create')}} ">Nouveau menu</a></li>
+              </ul>
+            </li>
+
+          
+
+          </ul>
+
+          <ul class="nav side-menu">
+            <li><a><i class="fa fa-home"></i> Groupe <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu">
+                <li><a href="#">Liste des menus</a></li>
+                <li><a href="#">Nouvel menu</a></li>
               </ul>
             </li>
 

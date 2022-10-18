@@ -19,6 +19,17 @@ $(document).ready(function()
 		})
 	})
 
+	
+	// Affichage de la description entiere dans le modal
+	$('.bouton_description').on('click',function()
+	{
+		var $description = $(this).data('description')
+		
+		$('#modal_description p').text($description)
+		
+	})
+
+
 
 	
 })
