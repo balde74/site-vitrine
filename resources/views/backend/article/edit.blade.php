@@ -77,48 +77,7 @@ Modifier un article
 				          	</div>
 			          	</div>
 				</div>
-
-{{-- 				<div class="form-group item" id="faculte_field">
-		            <label class="control-label col-md-3 col-sm-3 label-align ">Selectionner la direction </label>
-		            <div class="col-md-8 col-sm-8 ">
-		              <select  class="select2_single form-control  {{ $errors->has('direction_id') ? ' is-invalid' : '' }}" tabindex="-1" name="direction_id" >
-		                <option value="" ></option>
-		                @foreach ($directions as $direction)
-		                  <option value="{{ $direction->id }}" @if ($direction->id == $article->direction_id)
-		                    selected @endif
-		                    > {{ $direction->nom }}</option>
-		                @endforeach
-		              </select>
-		                @if ($errors->has('direction_id'))
-		                  <span class="invalid-feedback" role="alert">
-		                      <strong>{{ $errors->first('direction_id') }}</strong>
-		                  </span>
-		                @endif
-		            </div>
-	 		    </div> --}}
-
-	 		    @if (Auth::user()->role->id == 1)
-					<div class="form-group item" >
-		            <label class="control-label col-md-3 col-sm-3 label-align ">Selectionner la direction </label>
-		            <div class="col-md-8 col-sm-8 ">
-		              <select id="" class="select2_single form-control  {{ $errors->has('direction_id') ? ' is-invalid' : '' }}" tabindex="-1" name="direction_id" >
-		                <option value="" >General</option>
-		                @foreach ($directions as $direction)
-		                  <option value="{{ $direction->id }}" @if ($direction->id == $article->direction_id)
-		                    selected @endif
-		                    >{{ $direction->nom }}</option>
-		                @endforeach
-		              </select>
-		                @if ($errors->has('direction_id'))
-		                  <span class="invalid-feedback" role="alert">
-		                      <strong>{{ $errors->first('direction_id') }}</strong>
-		                  </span>
-		                @endif
-		            </div>
-		      	</div>
-				@else
-					<input type="text" value="{{ Auth::user()->direction_id }}" name="direction_id" class="d-none">
-				@endif
+	   
 				
 				<div class="ln_solid"></div>
 				<div class="item form-group">

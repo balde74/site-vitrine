@@ -32,14 +32,14 @@ Publier un article
 					</div>
 				</div>
 
-				 <div class="item form-group">
+				 {{-- <div class="item form-group">
                     <div class="col-md-6 col-sm-8 mx-auto mt-2">
                                 <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-sm mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
                          Supprimer les styles du texte
                         </button>
                     </div>
-                </div>
+                </div> --}}
                 
 				<div class="item form-group">
 					<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Intro</label>
@@ -69,26 +69,7 @@ Publier un article
 				          	</div>
 			          	</div>
 				</div>
-				@if (Auth::user()->role->id == 1)
-					<div class="form-group item" >
-		            <label class="control-label col-md-3 col-sm-3 label-align ">Selectionner la direction </label>
-		            <div class="col-md-8 col-sm-8 ">
-		              <select id="" class="select2_single form-control  {{ $errors->has('direction_id') ? ' is-invalid' : '' }}" tabindex="-1" name="direction_id" >
-		                <option value="" >General</option>
-		                @foreach ($directions as $direction)
-		                  <option value="{{ $direction->id }}">{{ $direction->nom }}</option>
-		                @endforeach
-		              </select>
-		                @if ($errors->has('direction_id'))
-		                  <span class="invalid-feedback" role="alert">
-		                      <strong>{{ $errors->first('direction_id') }}</strong>
-		                  </span>
-		                @endif
-		            </div>
-		      	</div>
-				@else
-					<input type="text" value="{{ Auth::user()->direction_id }}" name="direction_id" class="d-none">
-				@endif
+				
 
 				
 				<div class="ln_solid"></div>

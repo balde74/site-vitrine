@@ -28,8 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $directions = Direction::all();
-        return view('backend/article/create',compact('directions'));
+        return view('backend/article/create');
     }
 
     /**
@@ -43,7 +42,6 @@ class ArticleController extends Controller
         $request->validate([
             'titre'=>'required|string|min:3',
             'introduction'=>'required|min:5',
-            // 'direction_id'=>'required',
             'image'=>'required|mimes:jpg,png'
         ]);
 
@@ -89,6 +87,7 @@ class ArticleController extends Controller
     public function section($article)
     {
         $article = Article::find($article);
+        
         return view('backend/article/section',compact('article'));
     }
 
@@ -100,8 +99,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $directions = Direction::all();
-        return view('backend/article/edit',compact('article','directions'));
+        return view('backend/article/edit',compact('article'));
     }
 
     /**
@@ -116,20 +114,13 @@ class ArticleController extends Controller
         $request->validate([
             'titre'=>'required|string|min:3',
             'introduction'=>'required|min:5',
-            // 'direction_id'=>'required',
             'image'=>'sometimes|mimes:jpg,png'
         ]);
 
         $article->titre = $request->titre;
         $article->introduction = $request->introduction;
 
-        if ($request->direction_id) {
-            $article->direction_id = $request->direction_id;
-        }else
-        {
-            $article->direction_id = null;
-        }
-
+        
         $article->save();
 
        if ($request->image) {

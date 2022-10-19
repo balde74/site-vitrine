@@ -24,11 +24,23 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('menu',MenuController::class);
-Route::resource('section-menu',SectionMenuController::class);
+Route::resource('section-menu',SectionMenuController::class,['except'=>'create']);
+Route::resource('article',ArticleController::class);
+Route::resource('section',SectionController::class,['except'=>'create']);
+Route::Resource('galerie',GalerieController::class,['except'=>['show','edit','update']]);
+
+
+
+// route des elements du menu
 Route::get('menu/{id}/section','MenuController@section')->name('section-menu');
 Route::get('section/{id}/create','SectionMenuController@nouvelle_section')->name('section-menu-create');
 
 
-//nouvelle section
-// Route::get('section/{id}/create','SectionController@nouvelle_section')->name('nouvelle_section');
+// route pour les articles
+Route::get('article/{id}/section','ArticleController@section')->name('section');
+Route::get('section/{id}/create','SectionController@nouvelle_section')->name('section_create');
+
+//status des articles
+Route::get('article/{id}/action','ArticleController@status')->name('status_article');
+
 

@@ -2,8 +2,9 @@
 @section('title')
 Liste des articles
 @endsection
+
 @section('autres_css')
-	<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 @endsection
 @section('content')
 <div class="row">
@@ -22,7 +23,6 @@ Liste des articles
                 <tr>
                   <th>Date</th>
                   <th>Titre</th>
-                  <th>Direction</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -38,13 +38,7 @@ Liste des articles
               			@endphp
               		</td>
               		<td>{{ $article->titre }}</td>
-              		<td>
-              			@if ($article->direction_id)
-	                  		{{ $article->direction->nom }}
-	                  	@else
-	                  		General
-	                  	@endif
-              		</td>
+              		
 
               		<td>
 									@if ($article->status == 0)
@@ -55,16 +49,14 @@ Liste des articles
 								</td>
               		
               		<td class="parent">
-              			@if ($article->direction_id == Auth::user()->direction_id || Auth::user()->role->id == 1)
 
-              			@if (Auth::user()->role->id == 1)
-											@if ($article->status == 0)
-												<a href="{{ route('status_article',$article->id) }} " class="btn btn-sm btn-outline-success btn-round"> <span class="fa fa-share"></span> Publier</a>
-											@elseif($article->status == 1)
-												<a href="{{ route('status_article',$article->id) }} " class="btn btn-sm btn-outline-warning btn-round"> <span class="fa fa-eye-slash"></span> Masquer</a>
+						@if ($article->status == 0)
+							<a href="{{ route('status_article',$article->id) }} " class="btn btn-sm btn-outline-success btn-round"> <span class="fa fa-share"></span> Publier</a>
+						@elseif($article->status == 1)
+							<a href="{{ route('status_article',$article->id) }} " class="btn btn-sm btn-outline-warning btn-round"> <span class="fa fa-eye-slash"></span> Masquer</a>
 
-											@endif
-										@endif
+						@endif
+						
 										<a href="{{ route('section',$article->id) }}" class="btn btn-sm btn-outline-secondary btn-round"><span class="fa fa-align-justify"></span> Section </a>
 				            <a href="{{ route('article.show',$article->id) }}" class="btn btn-round btn-sm btn-outline-info btn-round "><span class="fa fa-eye"></span> Détails</a>
 										<a href="{{ route('article.edit',$article->id) }}" class="btn btn-round btn-sm btn-outline-warning btn-round "><span class="fa fa-pencil"></span> Modifier</a>
@@ -76,7 +68,7 @@ Liste des articles
 											{{-- <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> --}}
 										</form>
 
-              			@endif
+              			
               		</td>
 				              		
               	</tr>
@@ -90,5 +82,5 @@ Liste des articles
 
 @endsection
 @section('autres_scripts')
-	{{-- @include('layouts/partials/_data_table_simple') --}}
+	@include('includes/data_table_simple')
 @endsection

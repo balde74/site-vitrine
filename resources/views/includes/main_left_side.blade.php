@@ -43,7 +43,7 @@
         <div class="menu_section">
           <h3>General</h3>
           <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Menu <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-home"></i> Menus <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href=" {{route('menu.index')}} ">Liste des menus</a></li>
                 <li><a href=" {{route('menu.create')}} ">Nouveau menu</a></li>
@@ -55,15 +55,21 @@
           </ul>
 
           <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Groupe <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-newspaper-o"></i> Articles <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a href="#">Liste des menus</a></li>
-                <li><a href="#">Nouvel menu</a></li>
+                <li><a href="{{route('article.index')}}">Liste des articles</a></li>
+                <li><a href="{{route('article.create')}}">Nouvel article</a></li>
               </ul>
             </li>
+          </ul>
 
-          
-
+          <ul class="nav side-menu">
+            <li><a><i class="fa fa-image"></i> Images <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu">
+                <li><a href="{{route('galerie.index')}}">Liste des images</a></li>
+                <li><a href="{{route('galerie.create')}}">Nouvelle image</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
 
