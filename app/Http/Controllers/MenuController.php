@@ -120,6 +120,12 @@ class MenuController extends Controller
         return redirect()->route('menu.index');   
     }
 
+    public function section($menu)
+    {
+        $menu = Menu::find($menu);
+        return view('backend/menu/section',compact('menu'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

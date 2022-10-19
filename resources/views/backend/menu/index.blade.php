@@ -34,6 +34,7 @@
             <tr>
               <th>Titre</th>
               <th>Type de menu</th>
+              <th>Nbre de section</th>
               <th>Description</th>
               <th>Actions</th>
             </tr>
@@ -46,6 +47,10 @@
                 <td>
                 {{$menu->type_menu->type}}
                 </td>
+
+                <td>
+                  {{$menu->section_menus->count()}}
+                </td>
                 <td>
                   {{ str_limit($menu->description,40) }} 
                   
@@ -54,7 +59,8 @@
                   @endif
                 </td>
                 <td class="parent">
-                  <a href="#" class="btn btn-round btn-sm btn-outline-secondary btn-round "><span class="fa fa-plus"></span> Fichier</a>
+                  
+                  <a href="{{route('section-menu',$menu->id)}}" class="btn btn-round btn-sm btn-outline-secondary btn-round "><span class="fa fa-align-justify"></span> Section </a>
                   <a href="{{ route('menu.show',$menu->id) }}" class="btn btn-round btn-sm btn-outline-info btn-round "><span class="fa fa-eye"></span> Detail</a>
 
                   <a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-round btn-sm btn-outline-warning btn-round "><span class="fa fa-pencil"></span> Modifier</a>
@@ -78,7 +84,7 @@
 @endsection
 
 @section('script')
-{{-- @include('includes.data_table_simple') --}}
+@include('includes.data_table_simple')
 
 
 {{-- 

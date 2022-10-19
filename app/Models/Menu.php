@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Type_menu;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\SectionMenu;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Menu extends Model
 {
@@ -13,5 +14,10 @@ class Menu extends Model
     function type_menu()
     {
         return $this->belongsTo(Type_menu::class);
+    }
+
+    function section_menus()
+    {
+        return $this->hasMany(SectionMenu::class);
     }
 }

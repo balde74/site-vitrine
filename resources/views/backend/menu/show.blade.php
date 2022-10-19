@@ -19,9 +19,13 @@ affichage du menu
 							<img src="{{ asset('documents/'.$menu->image) }}" class="" alt="image de Presentation" width="100%" >
 						@endif
 							<br/>
+							<h2> <b> Description </b> </h2>
 							{{ $menu->description }} 
 
-							{{-- @foreach ($menu->sections->sortBy('numero_section') as $section)
+							<br>
+							<br>
+							<h2> <b> Contenu </b> </h2>
+							@foreach ($menu->section_menus->sortBy('numero_section') as $section)
 							
 							@if ($section->section_image)
 								<img src="{{ asset('documents/'.$section->section_image) }}" class="" alt="image de la section" width="100%" >
@@ -29,7 +33,7 @@ affichage du menu
 							@endif
 							{!! $section->section !!}
 							<br/><br/>
-						@endforeach --}}
+						@endforeach
 
 					</div>
 					<br>
