@@ -28,12 +28,13 @@ Route::resource('section-menu',SectionMenuController::class,['except'=>'create']
 Route::resource('article',ArticleController::class);
 Route::resource('section',SectionController::class,['except'=>'create']);
 Route::Resource('galerie',GalerieController::class,['except'=>['show','edit','update']]);
+Route::Resource('contact',ContactController::class,['only'=>['edit','update']]);
 
 
 
 // route des elements du menu
 Route::get('menu/{id}/section','MenuController@section')->name('section-menu');
-Route::get('section/{id}/create','SectionMenuController@nouvelle_section')->name('section-menu-create');
+Route::get('section-menu/{id}/create','SectionMenuController@nouvelle_section')->name('section-menu-create');
 
 
 // route pour les articles
@@ -44,3 +45,6 @@ Route::get('section/{id}/create','SectionController@nouvelle_section')->name('se
 Route::get('article/{id}/action','ArticleController@status')->name('status_article');
 
 
+
+// route pour le frontend 
+Route::get('menu/{id}/show','Frontend\HomeController@menuShow')->name('menu_show');
