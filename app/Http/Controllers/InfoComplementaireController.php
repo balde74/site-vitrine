@@ -60,6 +60,12 @@ class InfoComplementaireController extends Controller
         return view('backend/info/edit',compact('info_complementaire'));
     }
 
+    public function mot_directeur(Info_complementaire $info_complementaire)
+    {
+        return view('backend.info.mot_directeur',compact('info_complementaire'));
+    }
+
+   
     /**
      * Update the specified resource in storage.
      *
@@ -80,6 +86,25 @@ class InfoComplementaireController extends Controller
             $info_complementaire->telephone = $request->telephone;
             $info_complementaire->adresse = $request->adresse;
             $info_complementaire->save();
+        }
+        if($request->mot_directeur)
+        {
+            $request->validate([
+                'mot_directeur'=>'required|min:5',
+            ]);
+            $info_complementaire->mot_directeur = $request->mot_directeur;
+
+            $info_complementaire->save();
+
+            if ($request->image) {
+                 $hash=md5(mt_rand());
+                 if (!empty($info_complementaire->mot_directeur_image)) {
+                     unlink('documents/'.$info_complementaire->mot_directeur_image);
+                 }
+                 $info_complementaire->mot_directeur_image = $request->image->storeAs('infos',$hash.''.$info_complementaire->id);
+                 $info_complementaire->save();
+             }
+             
         }
         
         return back();

@@ -44,13 +44,13 @@
 				<div class="row ">
 					<div class="col-md-12">
 						<div class="single-blog-item">
-							<img loading="lazy" src="{{asset('documents/'.$menu->image)}}" alt="blog" class="img-fluid rounded" style="width: 100%">
+							{{-- <img loading="lazy" src="{{asset('documents/'.$menu->image)}}" alt="blog" class="img-fluid rounded" style="width: 100%"> --}}
 
 							<div class="blog-item-content bg-white p-2">
 								
 
-								<h2 class="mt-2 mb-4">{{$menu->titre}}</h2>
-								<p class="lead mb-4 text-justify ">{{$menu->description}}</p>
+								{{-- <h2 class="mt-2 mb-4">{{$menu->titre}}</h2>
+								<p class="lead mb-4 text-justify ">{{$menu->description}}</p> --}}
 
                                 @foreach ($menu->section_menus as $section)
 							        <img loading="lazy" src="{{asset('documents/'.$section->section_image)}}" alt="image de section" class="img-fluid rounded" style="width: 100%">
@@ -70,9 +70,8 @@
 					<div class="sidebar-widget card border-0 mb-3">
 						<img loading="lazy" src="{{asset('documents/'.$menu->image)}}" alt="blog-author" class="img-fluid">
 						<div class="card-body p-4 text-center">
-							<h5 class="mb-0 mt-4">Arther Conal</h5>
-							<p>Digital Marketer</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, dolore.</p>
+							<h5 class="mb-0 mt-4">{{$menu->titre}}</h5>
+							<p class="text-justify">{{$menu->description}}</p>
 
 							<ul class="list-inline author-socials">
 								<li class="list-inline-item mr-3">
@@ -131,7 +130,6 @@
 
 <!-- Section About End -->
 
-@include('includes/frontend/_compteur')
 
 
 @endsection

@@ -44,6 +44,9 @@ Route::get('section/{id}/create','SectionController@nouvelle_section')->name('se
 //status des articles
 Route::get('article/{id}/action','ArticleController@status')->name('status_article');
 
+Route::get('mot_directeur/{info_complementaire}/edit','InfoComplementaireController@mot_directeur')->name('mot_directeur');
+Route::put('mot_directeur/{info_complementaire}/edit','InfoComplementaireController@mot_directeur_update')->name('mot_directeur');
+
 
 
 // route pour le frontend 
