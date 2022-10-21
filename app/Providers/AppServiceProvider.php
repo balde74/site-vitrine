@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Menu;
-use App\Models\Contact;
+use App\Models\Info_complementaire;
 use App\Models\Galerie;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -28,11 +28,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $menus = Menu::all();
-        $contact = Contact::find(1);
+        $info = Info_complementaire::find(1);
         $images = Galerie::all();
 
         View::share('menus',$menus);
-        View::share('contact',$contact);
+        View::share('info',$info);
         View::share('images',$images);
     }
 }

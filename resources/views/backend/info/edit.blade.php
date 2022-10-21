@@ -20,7 +20,7 @@ Modifier les infos de contact
 			<br />
            
 			
-			<form data-parsley-validate class="form-horizontal form-label-left" method="POST" action="{{ route('contact.update',$contact->id) }}" enctype="multipart/form-data">
+			<form data-parsley-validate class="form-horizontal form-label-left" method="POST" action="{{ route('info_complementaire.update',$info_complementaire->id) }}" enctype="multipart/form-data">
 
 			@csrf
 			@method('PUT')
@@ -28,7 +28,7 @@ Modifier les infos de contact
            	<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">email</label>
 				<div class="col-md-8 col-sm-8 ">
-				<input type="email" name="email" id="first-name" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email')??$contact->email }}" autofocus autocomplete="off">
+				<input type="email" name="email" id="first-name" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email')??$info_complementaire->email }}" autofocus autocomplete="off">
 				@if ($errors->has('email'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('email') }}</strong>
@@ -40,7 +40,7 @@ Modifier les infos de contact
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">telephone</label>
 				<div class="col-md-8 col-sm-8 ">
-				<input type="input" name="telephone" id="first-name" class="form-control {{ $errors->has('telephone') ? ' is-invalid' : '' }}" value="{{ old('telephone')??$contact->telephone }}" autofocus autocomplete="off">
+				<input type="input" name="telephone" id="first-name" class="form-control {{ $errors->has('telephone') ? ' is-invalid' : '' }}" value="{{ old('telephone')??$info_complementaire->telephone }}" autofocus autocomplete="off">
 				@if ($errors->has('telephone'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('telephone') }}</strong>
@@ -52,7 +52,7 @@ Modifier les infos de contact
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">adresse</label>
 				<div class="col-md-8 col-sm-8 ">
-				<input type="input" name="adresse" id="first-name" class="form-control {{ $errors->has('adresse') ? ' is-invalid' : '' }}" value="{{ old('adresse')??$contact->adresse }}" autofocus autocomplete="off">
+				<input type="input" name="adresse" id="first-name" class="form-control {{ $errors->has('adresse') ? ' is-invalid' : '' }}" value="{{ old('adresse')??$info_complementaire->adresse }}" autofocus autocomplete="off">
 				@if ($errors->has('adresse'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('adresse') }}</strong>

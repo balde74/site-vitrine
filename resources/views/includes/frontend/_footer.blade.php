@@ -42,9 +42,9 @@
             <div class="logo mb-4">
               <h3>{{ config('app.name') }}<span>.</span></h3>
             </div>
-            <h6>{{$contact->email}}</h6>
-            <h6>{{$contact->adresse}}</h6>
-            <h4><span class="text-color">{{$contact->telephone}}</span></h4>
+            <h6>{{$info->email}}</h6>
+            <h6>{{$info->adresse}}</h6>
+            <h4><span class="text-color">{{$info->telephone}}</span></h4>
           </div>
         </div>
       </div>

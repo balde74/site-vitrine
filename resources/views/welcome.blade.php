@@ -17,6 +17,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </section>
 <h2>Ici d'autre contenu </h2>

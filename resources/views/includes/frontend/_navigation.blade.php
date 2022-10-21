@@ -12,8 +12,8 @@
           </div>
           <div class="col-lg-10 col-md-8 text-center text-lg-right text-md-right">
             <div class="header-top-info mb-2 mb-md-0">
-              <a href="tel:+23-345-67890">Téléphone : <span>+224 {{$contact->telephone}}</span></a>
-              <a href="#"><i class="fas fa-envelope mr-2"></i><span>{{$contact->email}}</span></a>
+              <a href="tel:{{$info->telephone}}">Téléphone : <span>+224 {{$info->telephone}}</span></a>
+              <a href="#"><i class="fas fa-envelope mr-2"></i><span>{{$info->email}}</span></a>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
                 </ul>
         
                 <div class="my-2 my-md-0 ml-lg-4 text-center">
-                  <a href="contact.html" class="btn btn-solid-border btn-round-full">Nous contacter</a>
+                  <a href="#" class="btn btn-solid-border btn-round-full">Nous contacter</a>
                 </div>
               </div>
             </nav>

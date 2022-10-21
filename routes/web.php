@@ -28,7 +28,7 @@ Route::resource('section-menu',SectionMenuController::class,['except'=>'create']
 Route::resource('article',ArticleController::class);
 Route::resource('section',SectionController::class,['except'=>'create']);
 Route::Resource('galerie',GalerieController::class,['except'=>['show','edit','update']]);
-Route::Resource('contact',ContactController::class,['only'=>['edit','update']]);
+Route::Resource('info_complementaire',InfoComplementaireController::class,['only'=>['edit','update']]);
 
 
 
