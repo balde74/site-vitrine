@@ -26,6 +26,7 @@ require __DIR__.'/auth.php';
 Route::resource('menu',MenuController::class);
 Route::resource('section-menu',SectionMenuController::class,['except'=>'create']);
 Route::resource('article',ArticleController::class);
+Route::resource('slogan',SloganController::class,['except'=>['show']]);
 Route::resource('section',SectionController::class,['except'=>'create']);
 Route::Resource('galerie',GalerieController::class,['except'=>['show','edit','update']]);
 Route::Resource('info_complementaire',InfoComplementaireController::class,['only'=>['edit','update']]);
@@ -46,6 +47,9 @@ Route::get('article/{id}/action','ArticleController@status')->name('status_artic
 
 Route::get('mot_directeur/{info_complementaire}/edit','InfoComplementaireController@mot_directeur')->name('mot_directeur');
 Route::put('mot_directeur/{info_complementaire}/edit','InfoComplementaireController@mot_directeur_update')->name('mot_directeur');
+
+Route::get('image_principale/{info_complementaire}/edit','InfoComplementaireController@image_principale')->name('image_principale');
+Route::put('image_principale/{info_complementaire}/edit','InfoComplementaireController@image_principale_update')->name('image_principale');
 
 
 

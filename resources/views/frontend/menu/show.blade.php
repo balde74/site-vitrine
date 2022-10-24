@@ -73,7 +73,7 @@
 							<h5 class="mb-0 mt-4">{{$menu->titre}}</h5>
 							<p class="text-justify">{{$menu->description}}</p>
 
-							<ul class="list-inline author-socials">
+							{{-- <ul class="list-inline author-socials">
 								<li class="list-inline-item mr-3">
 									<a href="#"><i class="fab fa-facebook-f text-muted"></i></a>
 								</li>
@@ -89,37 +89,50 @@
 								<li class="list-inline-item mr-3">
 									<a href="#"><i class="fab fa-behance text-muted"></i></a>
 								</li>
-							</ul>
+							</ul> --}}
 						</div>
 					</div>
 
 					<div class="sidebar-widget latest-post card border-0 p-4 mb-3">
-						<h5>Latest Posts</h5>
+						@if ($menu->type_menu->id == 1)
+							<h5>Nos filiales</h5>
+						@endif  
+						@if ($menu->type_menu->id == 2)
+							<h5>Groupe EMAB</h5>
+						@endif   
 
-						<div class="media border-bottom py-3">
-							<a href="#"><img loading="lazy" class="mr-4" src="images/blog/bt-3.jpg" alt="blog"></a>
-							<div class="media-body">
-								<h6 class="my-2"><a href="#">Thoughtful living in los Angeles</a></h6>
-								<span class="text-sm text-muted">03 Mar 2018</span>
-							</div>
-						</div>
 
-						<div class="media border-bottom py-3">
-							<a href="#"><img loading="lazy" class="mr-4" src="images/blog/bt-2.jpg" alt="blog"></a>
-							<div class="media-body">
-								<h6 class="my-2"><a href="#">Vivamus molestie gravida turpis.</a></h6>
-								<span class="text-sm text-muted">03 Mar 2018</span>
-							</div>
-						</div>
+						@if ($menu->type_menu->id == 1)
+							@foreach ($menus->where('type_menu_id',1)->where('id','<>',$menu->id) as $menu)
+								<div class="media border-bottom py-3">
+									<div class="col"><a href="{{route('menu_show',$menu->id)}}"><img loading="lazy" class="mr-4" src="{{asset('documents/'.$menu->image)}}" alt="blog" width="100%"></a></div>
+									<div class="media-body col">
+										<h6 class="my-2"><a href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></h6>
+										{{-- <span class="text-sm text-muted">03 Mar 2018</span> --}}
+									</div>
+									
+									
+								</div>
+							
+							@endforeach
+						@endif
 
-						<div class="media py-3">
-							<a href="#"><img loading="lazy" class="mr-4" src="images/blog/bt-1.jpg" alt="blog"></a>
-							<div class="media-body">
-								<h6 class="my-2"><a href="#">Fusce lobortis lorem at ipsum semper sagittis</a></h6>
-								<span class="text-sm text-muted">03 Mar 2018</span>
-							</div>
-						</div>
-					</div>
+						@if ($menu->type_menu->id == 2)
+							@foreach ($menus->where('type_menu_id',2)->where('id','<>',$menu->id) as $menu)
+								<div class="media border-bottom py-3">
+									<div class="col"><a href="{{route('menu_show',$menu->id)}}"><img loading="lazy" class="mr-4" src="{{asset('documents/'.$menu->image)}}" alt="blog" width="100%"></a></div>
+									<div class="media-body col">
+										<h6 class="my-2"><a href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></h6>
+										{{-- <span class="text-sm text-muted">03 Mar 2018</span> --}}
+									</div>
+									
+									
+								</div>
+							
+							@endforeach
+						@endif
+						
+
 
 					
 				</div>

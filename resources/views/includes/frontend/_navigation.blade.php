@@ -42,7 +42,7 @@
                     <a class="nav-link" href="/">Accueil</a>
                   </li>
                   <li class="nav-item dropdown  ">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Groupe <i class="fas fa-chevron-down small"></i></a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Groupe Emab <i class="fas fa-chevron-down small"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown03">
                         @foreach ($menus->where('type_menu_id',2) as $menu)
                             <li><a class="dropdown-item " href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></li>

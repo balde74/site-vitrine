@@ -50,10 +50,19 @@
               </ul>
             </li>
 
+            <li><a><i class="fa fa-chain"></i> Slogan <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu">
+                <li><a href="{{route('slogan.index')}}">Liste des slogans</a></li>
+                <li><a href="{{route('slogan.create')}}">Nouveau slogan</a></li>
+              </ul>
+            </li>
+
             <li><a><i class="fa fa-home"></i> Informations  <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="{{route('info_complementaire.edit',1)}}">Contact</a></li>
                 <li><a href="{{route('mot_directeur',1)}}">Mot directeur</a></li>
+                <li><a href="{{route('image_principale',1)}}">Image/Texte</a></li>
+                
               </ul>
             </li>
 

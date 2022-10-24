@@ -65,6 +65,11 @@ class InfoComplementaireController extends Controller
         return view('backend.info.mot_directeur',compact('info_complementaire'));
     }
 
+    public function image_principale(Info_complementaire $info_complementaire)
+    {
+        return view('backend.info.image_principale',compact('info_complementaire'));
+    }
+
    
     /**
      * Update the specified resource in storage.
@@ -106,7 +111,24 @@ class InfoComplementaireController extends Controller
              }
              
         }
-        
+        if($request->texte)
+        {
+            $request->validate([
+                'texte'=>'required|min:5',
+            ]);
+            $info_complementaire->texte = $request->texte;
+
+            $info_complementaire->save();
+
+            if ($request->image) {
+                 $hash=md5(mt_rand());
+                 if (!empty($info_complementaire->image)) {
+                     unlink('documents/'.$info_complementaire->image);
+                 }
+                 $info_complementaire->image = $request->image->storeAs('info_image',$hash.''.$info_complementaire->id);
+                 $info_complementaire->save();
+             }
+        }
         return back();
     }
 
