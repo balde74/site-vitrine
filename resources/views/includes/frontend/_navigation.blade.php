@@ -21,12 +21,13 @@
     </div>
   
     <div id="navbar">
-      <div class="container">
+      <div class="container-fluid ">
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg px-0 py-4">
               <a class="navbar-brand" href="/">
                 {{ config('app.name') }}<span>.</span>
+                <img src="{{asset('frontend/images/portfolio/3.jpg')}}" alt="" style="width: 20%">
               </a>
 
         
@@ -60,13 +61,13 @@
                   </li>
 
 
-                  <li class="nav-item "><a class="nav-link" href="/#portofolio"> Photos</a></li>
+                  <li class="nav-item "><a class="nav-link" href="/#portofolio"> Galerie</a></li>
                   <li class="nav-item "><a class="nav-link" href="service.html">Actualités</a></li>
                  
                 </ul>
         
                 <div class="my-2 my-md-0 ml-lg-4 text-center">
-                  <a href="#" class="btn btn-solid-border btn-round-full">Nous contacter</a>
+                  <a href="#contact" class="btn btn-solid-border btn-round-full">Nous contacter</a>
                 </div>
               </div>
             </nav>
