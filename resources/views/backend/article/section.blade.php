@@ -44,11 +44,11 @@
 		        			<tr>
 		        				<td><a href="#">section N° {{ $section->numero_section }} </a> </td>
 		        				<td class="parent">
-		        						<a href="{{ route('section.show',$section->id) }}" class="btn  btn-round btn-outline-info btn-sm">Voir</a>
+		        						<a href="{{ route('section.show',$section->id) }}" class="btn  btn-round btn-outline-info btn-sm"> <span class="fa fa-eye"></span> Voir</a>
 		        					
-		        						<a href="{{ route('section.edit',$section->id) }}" class="btn  btn-round btn-outline-warning btn-sm">Modifier</a>
+		        						<a href="{{ route('section.edit',$section->id) }}" class="btn  btn-round btn-outline-warning btn-sm"> <span class="fa fa-edit"></span> Modifier</a>
 
-		        						<a href="#" class="btn  btn-round btn-outline-danger btn-sm supprimer">Supprimer</a>
+		        						<a href="#" class="btn  btn-round btn-outline-danger btn-sm supprimer"> <span class="fa fa-trash"></span> Supprimer</a>
 			        					<form action="{{ route('section.destroy',$section->id) }}" method="post" class="form_suppression">
 			        						@csrf
 			        						@method('DELETE')

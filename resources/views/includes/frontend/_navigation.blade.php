@@ -62,7 +62,7 @@
 
 
                   <li class="nav-item "><a class="nav-link" href="/#portofolio"> Galerie</a></li>
-                  <li class="nav-item "><a class="nav-link" href="service.html">Actualités</a></li>
+                  <li class="nav-item "><a class="nav-link" href="{{route('actualites')}}">Actualités</a></li>
                  
                 </ul>
         

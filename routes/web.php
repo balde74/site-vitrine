@@ -55,3 +55,5 @@ Route::put('image_principale/{info_complementaire}/edit','InfoComplementaireCont
 
 // route pour le frontend 
 Route::get('menu/{id}/show','Frontend\HomeController@menuShow')->name('menu_show');
+Route::get('actualités','Frontend\HomeController@actualites')->name('actualites');
+Route::get('article-show/{id}','Frontend\HomeController@article_show')->name('article_show');

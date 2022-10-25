@@ -39,6 +39,7 @@
 	                <h4>
 	                  {{-- <i class="fa fa-comments"></i> Commentaires ({{$article->commentaires->count()}}) &nbsp;&nbsp; --}}
 	                  <a href="{{ route('article.edit',$article->id) }}"><i class="fa fa-pencil-square"></i> Modifier &nbsp;&nbsp;</a>
+	                  <a href="{{ route('section',$article->id) }}"><i class="fa fa-align-center"></i> Sections &nbsp;&nbsp;</a>
 	                </h4>
 
 				<!--  commentes -->
