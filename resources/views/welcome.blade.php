@@ -12,9 +12,25 @@
 			<div class="col-lg-9 col-md-10">
 				<div class="block">
 					{{-- <span class="d-block mb-3 text-white text-capitalize">Emab</span> --}}
-					<h1 class="animated fadeInUp mb-5 text-justify">{{$info->texte}}</h1>
-					<a href="#contact"  class="btn btn-main animated fadeInUp btn-round-full" aria-label="Get started">Demander un devis<i class="btn-icon fa fa-angle-right ml-2"></i></a>
+					<h1 class="animated fadeInUp mb-5 text-justify animate__animated 
+					
+					@if (Carbon\Carbon::now()->format('i') % 2 == 0 )
+					animate__backInDown
+						@else
+						animate__backInUp
+					@endif
+
+					 animate__delay-0.5s">{{$info->texte}}</h1>
+					<a href="#contact"  class="btn btn-main btn-round-full animate__animated
+					@if (Carbon\Carbon::now()->format('i') % 2 == 0 )
+					animate__backInLeft animate__delay-1s
+						@else
+						animate__backInRight animate__delay-1s
+					@endif
+					
+					" aria-label="Get started">Demander un devis<i class="btn-icon fa fa-angle-right ml-2"></i></a>
 				</div>
+				
 			</div>
 		</div>
 		
