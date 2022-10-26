@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 25 oct. 2022 à 14:23
+-- Généré le : mer. 26 oct. 2022 à 13:08
 -- Version du serveur : 8.0.30-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.11
 
@@ -317,6 +317,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Abdoulaye', 'Balde', 'baldea49@gmail.com', NULL, '$2y$10$s/tZ4OpxCIrztcRHDeExPu36xHhgXyZsDxumknp60ViS3UWTRGRvG', NULL, '2022-10-25 14:33:25', '2022-10-25 14:33:25'),
+(2, 'Ibrahima sory', 'Diallo', 'is.diallo@isfad-gn.org', NULL, '$2y$10$s/tZ4OpxCIrztcRHDeExPu36xHhgXyZsDxumknp60ViS3UWTRGRvG', NULL, '2022-10-26 12:57:38', '2022-10-26 12:57:38');
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -479,7 +487,7 @@ ALTER TABLE `type_menus`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
