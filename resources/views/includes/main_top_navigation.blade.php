@@ -8,8 +8,7 @@
         <li class="nav-item dropdown open" style="padding-left: 15px;">
           <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user"></i> 
-            Jon DOE
-            {{-- {{ Auth::user()->getFullName() }} --}}
+            {{ Auth::user()->getFullName() }}
           </a>
           <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
             <!-- <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -21,14 +20,14 @@
 
            
 
-            <a class="dropdown-item"  href="#"><i class="fa fa-user pull-left"></i> Mon profil</a>
+            {{-- <a class="dropdown-item"  href="#"><i class="fa fa-user pull-left"></i> Mon profil</a> --}}
             <a class="dropdown-item"  href=""
                 onclick="event.preventDefault(); 
                   document.getElementById('logout-form').submit(); "><i class="fa fa-sign-out pull-left"></i> Déconnexion</a>
 
-                  {{-- <form action="{{ route('logout') }}" id="logout-form" method="post">
+                  <form action="{{ route('logout') }}" id="logout-form" method="post">
                     @csrf
-                  </form> --}}
+                  </form>
           </div>
         </li>
       
