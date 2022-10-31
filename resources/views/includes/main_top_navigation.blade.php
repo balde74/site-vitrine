@@ -20,7 +20,9 @@
 
            
 
-            {{-- <a class="dropdown-item"  href="#"><i class="fa fa-user pull-left"></i> Mon profil</a> --}}
+          <a class="dropdown-item"  href="{{ route('user.edit',Auth::user()->id) }}"> Mon profil</a>
+
+          <a class="dropdown-item"  href="{{ route('form_changement_mot_de_passe') }}"> Changement de mot de passe</a>
             <a class="dropdown-item"  href=""
                 onclick="event.preventDefault(); 
                   document.getElementById('logout-form').submit(); "><i class="fa fa-sign-out pull-left"></i> Déconnexion</a>

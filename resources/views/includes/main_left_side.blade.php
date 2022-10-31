@@ -66,6 +66,17 @@
               </ul>
             </li>
 
+            @if (Auth::user()->role_id == 1)
+                
+              <li><a><i class="fa fa-users"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="{{ route('user.index') }}">Liste des utilisateurs</a></li>
+                  <li><a href="{{ route('user.create') }}">Nouvel utilisateur</a></li>
+
+                </ul>
+              </li>
+            @endif
+
           
 
           </ul>

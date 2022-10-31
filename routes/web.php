@@ -32,8 +32,13 @@ Route::middleware('auth')->group(function()
     Route::resource('section',SectionController::class,['except'=>'create']);
     Route::Resource('galerie',GalerieController::class,['except'=>['show','edit','update']]);
     Route::Resource('info_complementaire',InfoComplementaireController::class,['only'=>['edit','update']]);
+    Route::resource('user',UserController::class); 
     
     
+    //  route pour changement de mot de passe
+    Route::get('/form-changement-mot-de-passe','DiversController@formChangementMDP')->name('form_changement_mot_de_passe');
+    Route::post('/validation-changement-mot-de-passe','DiversController@validationChangementMDP')->name('validation_changement_mot_de_passe');
+
     
     // route des elements du menu
     Route::get('menu/{id}/section','MenuController@section')->name('section-menu');
