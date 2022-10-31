@@ -75,11 +75,6 @@
 
 					<div class="sidebar-widget latest-post card border-0 p-4 mb-3">
 					<h5>Actualités récentes </h5>
-
-
-						
-
-						
 							@foreach ($articles->where('status',1)->where('id','<>',$article->id)->take(4) as $article)
 								<div class="media border-bottom py-3">
 									<div class="col"><a href="{{route('article_show',$article->id)}}"><img loading="lazy" class="mr-4" src="{{asset('documents/'.$article->image)}}" alt="blog" width="100%"></a></div>
@@ -92,21 +87,9 @@
 								</div>
 							
 							@endforeach
-				
-						
-
-
-					
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
-
-
-
-
-
-
 @endsection

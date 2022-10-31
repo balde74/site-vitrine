@@ -37,12 +37,12 @@
                         <div class="blog-item-content bg-white p-5">
                             <div class="blog-item-meta bg-gray pt-2 pb-1 px-3 text-center">
                                 {{-- <span class="text-muted text-capitalize d-inline-block mr-3"><i class="ti-pencil-alt mr-2"></i>Creativity</span> --}}
-                                <span class="text-muted text-capitalize d-inline-block mr-3"><i class="ti-comment mr-2"></i>5 Comments</span>
+                                {{-- <span class="text-muted text-capitalize d-inline-block mr-3"><i class="ti-comment mr-2"></i>5 Comments</span> --}}
                                 <span class="text-black text-capitalize d-inline-block mr-3"><i class="ti-time mr-1"></i> {{$article->created_at->format('d -m -Y')}}</span>
                             </div>
 
-                            <h3 class="mt-3 mb-3"><a href="{{route('article_show',$article->id)}}">{{$article->titre}}</a></h3>
-                            <p class="mb-4">{{ str_limit($article->introduction,300)}}</p>
+                            <h3 class="mt-3 mb-3 text-center"><a href="{{route('article_show',$article->id)}}">{{$article->titre}}</a></h3>
+                            <p class="mb-4 text-justify">{{ str_limit($article->introduction,300)}}</p>
                             
                                 <a href="{{route('article_show',$article->id)}}" class="btn btn-small btn-main btn-round-full"  >Détail</a>
 

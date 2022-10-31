@@ -7,7 +7,7 @@
   
             <ul class="list-unstyled footer-menu lh-35">
               @foreach ($menus->where('type_menu_id',2) as $menu)
-               <li><a class="dropdown-item " href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></li>
+               <li><a  href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></li>
               @endforeach
              
             </ul>
@@ -19,7 +19,7 @@
   
             <ul class="list-unstyled footer-menu lh-35">
               @foreach ($menus->where('type_menu_id',1) as $menu)
-               <li><a class="dropdown-item " href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></li>
+               <li><a  href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></li>
               
                @endforeach
              
