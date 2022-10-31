@@ -25,7 +25,7 @@
   <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   
   <!--Favicon-->
-  <link rel="icon" href= {{asset('frontend/images/favicon.png" type="image/x-icon')}}>
+  <link rel="icon" href= "{{asset('frontend/images/logo emab.png')}}" type="image/png">
 
 </head>
 

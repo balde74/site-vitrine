@@ -26,8 +26,11 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg px-0 py-4">
               <a class="navbar-brand" href="/">
-                {{ config('app.name') }}<span>.</span>
-                <img src="{{asset('frontend/images/portfolio/3.jpg')}}" alt="" style="width: 20%">
+                {{-- {{ config('app.name') }}<span>.</span> --}}
+                <div style="margin-left: 100px">
+                  <img src="{{asset('frontend/images/logo emab.png')}}" alt="" style="width: 40%">
+
+                </div>
               </a>
 
         

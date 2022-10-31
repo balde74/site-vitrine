@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <link rel="icon" href="{{ asset('frontend/images/favicon.png') }}" type="image/png" /> --}}
+    <link rel="icon" href="{{ asset('frontend/images/logo emab.png') }}" type="image/png" />
 
    <title>@yield('title')</title>
 

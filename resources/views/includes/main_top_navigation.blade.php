@@ -20,9 +20,9 @@
 
            
 
-          <a class="dropdown-item"  href="{{ route('user.edit',Auth::user()->id) }}"> Mon profil</a>
+          <a class="dropdown-item"  href="{{ route('user.edit',Auth::user()->id) }}"> <span class="fa fa-user"></span> Mon profil</a>
 
-          <a class="dropdown-item"  href="{{ route('form_changement_mot_de_passe') }}"> Changement de mot de passe</a>
+          <a class="dropdown-item"  href="{{ route('form_changement_mot_de_passe') }}"> <span class="fa fa-edit"></span> Changement de mot de passe</a>
             <a class="dropdown-item"  href=""
                 onclick="event.preventDefault(); 
                   document.getElementById('logout-form').submit(); "><i class="fa fa-sign-out pull-left"></i> Déconnexion</a>

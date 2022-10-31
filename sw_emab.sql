@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 26 oct. 2022 à 13:08
+-- Généré le : lun. 31 oct. 2022 à 17:58
 -- Version du serveur : 8.0.30-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.11
 
@@ -170,7 +170,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2022_10_19_200532_create_galeries_table', 8),
 (25, '2022_10_21_210739_create_info_complementaires_table', 9),
 (26, '2022_10_24_160132_create_slogans_table', 10),
-(28, '2022_10_24_162749_add_image_and_text_fields_to_info_complementaires_table', 11);
+(28, '2022_10_24_162749_add_image_and_text_fields_to_info_complementaires_table', 11),
+(36, '2022_10_31_170126_create_roles_table', 12),
+(37, '2022_10_31_170219_add_role_id_to_users_table', 13);
 
 -- --------------------------------------------------------
 
@@ -205,6 +207,27 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint UNSIGNED NOT NULL,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`id`, `nom`, `created_at`, `updated_at`) VALUES
+(1, 'Admin central', '2022-10-31 17:10:18', '2022-10-31 17:10:18'),
+(2, 'Admin local', '2022-10-31 17:10:18', '2022-10-31 17:10:18');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `sections`
 --
 
@@ -225,8 +248,8 @@ CREATE TABLE `sections` (
 INSERT INTO `sections` (`id`, `section`, `section_image`, `numero_section`, `article_id`, `created_at`, `updated_at`) VALUES
 (3, '<span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">GridView is a widget in Flutter that displays the items in a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">2-D array</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;(two-dimensional rows and columns). As the name suggests, it will be used when we want to show items in a Grid. We can select the desired item from the grid list by tapping on them. This widget can contain&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">text, images, icons</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">, etc. to display in a grid layout depending on the user requirement. It is also referred to as a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">scrollable</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;2-D array of widgets. Since it is scrollable, we can specify the direction only in which it scrolls.</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">GridView is a widget in Flutter that displays the items in a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">2-D array</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;(two-dimensional rows and columns). As the name suggests, it will be used when we want to show items in a Grid. We can select the desired item from the grid list by tapping on them. This widget can contain&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">text, images, icons</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">, etc. to display in a grid layout depending on the user requirement. It is also referred to as a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">scrollable</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;2-D array of widgets. Since it is scrollable, we can specify the direction only in which it scrolls.</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">GridView is a widget in Flutter that displays the items in a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">2-D array</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;(two-dimensional rows and columns). As the name suggests, it will be used when we want to show items in a Grid. We can select the desired item from the grid list by tapping on them. This widget can contain&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">text, images, icons</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">, etc. to display in a grid layout depending on the user requirement. It is also referred to as a&nbsp;</span><span style=\"font-family: inter-bold, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 700; color: rgb(51, 51, 51); font-size: 16px; text-align: justify;\">scrollable</span><span style=\"color: rgb(51, 51, 51); font-family: inter-regular, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: justify;\">&nbsp;2-D array of widgets. Since it is scrollable, we can specify the direction only in which it scrolls.</span>', 'sections/b0a2f3c6ad9a1da98fa7f7f4579eccb83', 3, 2, '2022-10-19 15:31:15', '2022-10-25 13:00:57'),
 (4, 's simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'sections/fea110ce5568a993d988e747afc169c14', 2, 2, '2022-10-25 13:00:30', '2022-10-25 13:00:30'),
-(5, '<div>m Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div><div><br></div><div>Why do we use it?</div><div>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div><div><br></div>', 'sections/a340e5218bfc91342b14313dfb1c70bd5', 3, 3, '2022-10-25 13:03:13', '2022-10-25 13:05:53'),
-(6, '<div>m Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div><div><br></div><div>Why do we use it?</div><div>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div><div><br></div>', 'sections/22915471c0fa270bbe2d8ee2838603296', 2, 3, '2022-10-25 13:03:25', '2022-10-25 13:03:25');
+(5, '<div style=\"text-align: justify; \">m Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div><div style=\"text-align: justify;\"><br></div><div style=\"text-align: justify;\">Why do we use it?</div><div style=\"text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div><div style=\"text-align: justify;\"><br></div>', 'sections/a340e5218bfc91342b14313dfb1c70bd5', 3, 3, '2022-10-25 13:03:13', '2022-10-31 15:51:24'),
+(6, '<div style=\"text-align: justify; \">m Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div><div style=\"text-align: justify;\"><br></div><div style=\"text-align: justify;\">Why do we use it?</div><div style=\"text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div><div style=\"text-align: justify;\"><br></div>', 'sections/22915471c0fa270bbe2d8ee2838603296', 2, 3, '2022-10-25 13:03:25', '2022-10-31 15:51:16');
 
 -- --------------------------------------------------------
 
@@ -309,6 +332,7 @@ CREATE TABLE `users` (
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` bigint UNSIGNED NOT NULL DEFAULT '2',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -320,9 +344,9 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Abdoulaye', 'Balde', 'baldea49@gmail.com', NULL, '$2y$10$s/tZ4OpxCIrztcRHDeExPu36xHhgXyZsDxumknp60ViS3UWTRGRvG', NULL, '2022-10-25 14:33:25', '2022-10-25 14:33:25'),
-(2, 'Ibrahima sory', 'Diallo', 'is.diallo@isfad-gn.org', NULL, '$2y$10$s/tZ4OpxCIrztcRHDeExPu36xHhgXyZsDxumknp60ViS3UWTRGRvG', NULL, '2022-10-26 12:57:38', '2022-10-26 12:57:38');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `role_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Abdoulaye', 'Balde', 'baldea49@gmail.com', 1, NULL, '$2y$10$A8hCUwUTIGD0QhC5/7.b1uXcNSZfg1bkhq3BFMjZCRgLZiw.gIMLS', NULL, '2022-10-25 14:33:25', '2022-10-31 17:23:29'),
+(2, 'Ibrahima sory', 'Diallo', 'is.diallo@isfad-gn.org', 2, NULL, '$2y$10$s/tZ4OpxCIrztcRHDeExPu36xHhgXyZsDxumknp60ViS3UWTRGRvG', NULL, '2022-10-26 12:57:38', '2022-10-31 17:23:22');
 
 --
 -- Index pour les tables déchargées
@@ -381,6 +405,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `sections`
 --
 ALTER TABLE `sections`
@@ -411,7 +441,8 @@ ALTER TABLE `type_menus`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_role_id_foreign` (`role_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -451,13 +482,19 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `sections`
@@ -487,7 +524,7 @@ ALTER TABLE `type_menus`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
@@ -510,6 +547,12 @@ ALTER TABLE `sections`
 --
 ALTER TABLE `section_menus`
   ADD CONSTRAINT `section_menus_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
