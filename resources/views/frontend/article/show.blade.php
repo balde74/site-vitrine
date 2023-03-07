@@ -33,7 +33,15 @@
 						<div class="single-blog-item">
 							<div class="blog-item-content bg-white p-2">
                                 @foreach ($article->sections->sortBy('numero_section') as $section)
+                                	<?php
+                                	if(!empty($section->section_image)) 
+                                	{
+                                	?>
 							        <img loading="lazy" src="{{asset('documents/'.$section->section_image)}}" alt="image de section" class="img-fluid rounded" style="width: 100%">
+							         <?php 
+							  		 }
+							        ?>
+
 								    <p class="text-justify " >{!!$section->section!!}</p>
                                     
                                 @endforeach

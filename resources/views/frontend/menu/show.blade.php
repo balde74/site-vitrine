@@ -52,8 +52,16 @@
 								{{-- <h2 class="mt-2 mb-4">{{$menu->titre}}</h2>
 								<p class="lead mb-4 text-justify ">{{$menu->description}}</p> --}}
 
-                                @foreach ($menu->section_menus as $section)
+                                @foreach ($menu->section_menus->sortBy('numero_section') as $section)
+                                	<?php
+                                	if(!empty($section->section_image)) 
+                                	{
+                                	?>
 							        <img loading="lazy" src="{{asset('documents/'.$section->section_image)}}" alt="image de section" class="img-fluid rounded" style="width: 100%">
+							        <?php 
+							  		 }
+							        ?>
+
 								    <p class="text-justify " >{!!$section->section!!}</p>
                                     
                                 @endforeach
@@ -65,33 +73,41 @@
 
 			<div class="col-md-4 mt-5 mt-md-0">
 				<div class="sidebar-wrap">
-
-
+                	<?php
+                	if(!empty($menu->titre) or !empty($menu->description) or !empty($menu->image)) 
+                	{
+                	?>
 					<div class="sidebar-widget card border-0 mb-3">
+						<?php
+	                	if(!empty($menu->titre)) 
+	                	{
+	                	?>
 						<img loading="lazy" src="{{asset('documents/'.$menu->image)}}" alt="blog-author" class="img-fluid">
+						<?php 
+				  		 }
+				        ?>
 						<div class="card-body p-4 text-center">
+							<?php
+		                	if(!empty($menu->titre)) 
+		                	{
+		                	?>
 							<h5 class="mb-0 mt-4">{{$menu->titre}}</h5>
+							<?php 
+					  		 }
+					  		 if(!empty($menu->description)) 
+                			{
+					        ?>
 							<p class="text-justify">{{$menu->description}}</p>
+							<?php 
+					  		 }
+					        ?>
 
-							{{-- <ul class="list-inline author-socials">
-								<li class="list-inline-item mr-3">
-									<a href="#"><i class="fab fa-facebook-f text-muted"></i></a>
-								</li>
-								<li class="list-inline-item mr-3">
-									<a href="#"><i class="fab fa-twitter text-muted"></i></a>
-								</li>
-								<li class="list-inline-item mr-3">
-									<a href="#"><i class="fab fa-linkedin-in text-muted"></i></a>
-								</li>
-								<li class="list-inline-item mr-3">
-									<a href="#"><i class="fab fa-pinterest text-muted"></i></a>
-								</li>
-								<li class="list-inline-item mr-3">
-									<a href="#"><i class="fab fa-behance text-muted"></i></a>
-								</li>
-							</ul> --}}
 						</div>
 					</div>
+
+					<?php 
+			  		 }
+			        ?>
 
 					<div class="sidebar-widget latest-post card border-0 p-4 mb-3">
 						@if ($menu->type_menu->id == 1)
@@ -104,31 +120,70 @@
 
 						@if ($menu->type_menu->id == 1)
 							@foreach ($menus->where('type_menu_id',1)->where('id','<>',$menu->id) as $menu)
+							<?php
+			                	if(!empty($menu->titre) or !empty($menu->image)) 
+			                	{
+			                	?>
 								<div class="media border-bottom py-3">
+								<?php
+			                	if(!empty($menu->image)) 
+			                	{
+			                	?>
 									<div class="col"><a href="{{route('menu_show',$menu->id)}}"><img loading="lazy" class="mr-4" src="{{asset('documents/'.$menu->image)}}" alt="blog" width="100%"></a></div>
+								<?php 
+						  		 }
+
+						  		if(!empty($menu->titre)) 
+			                	{
+						        ?>
+
 									<div class="media-body col">
 										<h6 class="my-2"><a href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></h6>
-										{{-- <span class="text-sm text-muted">03 Mar 2018</span> --}}
+										
 									</div>
-									
-									
+								<?php 
+						  		 }
+						        ?>
 								</div>
+							<?php 
+						  	  }
+						        ?>
 							
 							@endforeach
 						@endif
 
 						@if ($menu->type_menu->id == 2)
 							@foreach ($menus->where('type_menu_id',2)->where('id','<>',$menu->id) as $menu)
+
+							<?php
+			                	if(!empty($menu->titre) or !empty($menu->image)) 
+			                	{
+			                	?>
 								<div class="media border-bottom py-3">
+								<?php
+			                	if(!empty($menu->image)) 
+			                	{
+			                	?>
 									<div class="col"><a href="{{route('menu_show',$menu->id)}}"><img loading="lazy" class="mr-4" src="{{asset('documents/'.$menu->image)}}" alt="blog" width="100%"></a></div>
+								<?php 
+						  		 }
+
+						  		if(!empty($menu->titre)) 
+			                	{
+						        ?>
+
 									<div class="media-body col">
 										<h6 class="my-2"><a href="{{route('menu_show',$menu->id)}}">{{$menu->titre}}</a></h6>
-										{{-- <span class="text-sm text-muted">03 Mar 2018</span> --}}
+										
 									</div>
-									
-									
+								<?php 
+						  		 }
+						        ?>
 								</div>
-							
+							<?php 
+						  	  }
+						        ?>
+						        
 							@endforeach
 						@endif
 						

@@ -73,7 +73,7 @@
         <div class="item form-group">
           <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Petite description</label>
           <div class="col-md-8 col-sm-8 ">
-          <textarea name="description" required="required" class="form-control  {{ $errors->has('description') ? ' is-invalid' : '' }}" cols="30" rows="5"  
+          <textarea name="description" class="form-control  {{ $errors->has('description') ? ' is-invalid' : '' }}" cols="30" rows="5"  
             >{{ old('description')??$menu->description }}</textarea>
           @if ($errors->has('description'))
                       <span class="invalid-feedback" role="alert">

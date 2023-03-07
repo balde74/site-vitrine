@@ -40,9 +40,8 @@ class MenuController extends Controller
     {
         $request->validate([
             'titre'=>'required|string|min:3',
-            'description'=>'required|min:5',
             'type_menu_id'=>'required|integer',
-            'image'=>'required|mimes:jpg,png'
+            'image'=>'sometimes|mimes:jpg,png'
         ]);
         // dd($request->all());
 
@@ -98,7 +97,6 @@ class MenuController extends Controller
     {
         $request->validate([
             'titre'=>'required|string|min:3',
-            'description'=>'required|min:5',
             'type_menu_id'=>'required|integer',
             'image'=>'sometimes|mimes:jpg,png'
         ]);

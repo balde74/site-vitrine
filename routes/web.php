@@ -64,5 +64,5 @@ Route::middleware('auth')->group(function()
 
 // route pour le frontend 
 Route::get('menu/{id}/show','Frontend\HomeController@menuShow')->name('menu_show');
-Route::get('actualités','Frontend\HomeController@actualites')->name('actualites');
+Route::get('actualites','Frontend\HomeController@actualites')->name('actualites');
 Route::get('article-show/{id}','Frontend\HomeController@article_show')->name('article_show');
